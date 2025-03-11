@@ -338,10 +338,44 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
+    header {
+        display: flex;
+        justify-content: space-between; /* Logo di kiri, navbar di kanan */
         align-items: center;
+        padding: 20px; /* Beri ruang agar tidak terlalu mepet */
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Menu berderet ke bawah */
+        align-items: center; /* Pusatkan menu di kanan */
+        gap: 12px; /* Jarak antar menu */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Jarak antar menu */
+        padding: 0;
+    }
+
+    nav ul li {
         text-align: center;
+        list-style: none;
+    }
+
+    nav ul li a {
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
     }
 }
 
