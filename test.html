@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Tempat di Indonesia</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #4b6584;
+            color: white;
+            padding: 1rem;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            background-color: #f4a261;
+            color: #333;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #4b6584;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Home Section */
+        .place-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .place-item {
+            width: 30%;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .place-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .place-item h3 {
+            font-size: 1.3rem;
+            padding: 1rem;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        .place-item p {
+            padding: 1rem;
+            color: #333;
+        }
+
+        .place-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            width: 20%;
+            text-align: center;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 4px solid #f4a261;
+        }
+
+        .team-member h4 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #4b6584;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            padding: 1rem;
+            color: #555;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        /* Form Styling */
+        form {
+            margin-top: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4b6584;
+            outline: none;
+            box-shadow: 0 0 5px rgba(75, 101, 132, 0.5);
+        }
+
+        button {
+            background-color: #4b6584;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3b5166;
+        }
+
+        /* Footer */
+    
+        footer {
+        background-color: #333; /* Pewarnaan seragam */
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        }
+
+        .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+   
+        }
+
+        .footer-section {
+        flex: 1;
+        min-width: 200px;
+        }
+
+        .footer-section h3 {
+        color: #fcd12a; /* Warna emas untuk heading */
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        }
+
+        .footer-section ul {
+        list-style: none;
+        padding: 0;
+        }
+
+        .footer-section ul li {
+        margin-bottom: 10px;
+        color: #ccc; /* Warna teks lebih lembut */
+        font-size: 0.9rem;
+        }
+
+        .footer-section ul li:hover {
+        color: #fff; /* Highlight saat hover */
+        cursor: pointer;
+        }
+
+        .footer-section p {
+         margin: 10px 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        }
+
+        .social-icons a {
+        margin: 0 10px;
+        font-size: 1.5rem;
+        color: #fcd12a; /* Warna emas untuk ikon sosial */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+        color: #fff; /* Warna putih saat hover */
+        }
+
+        .footer-bottom {
+        margin-top: 20px;
+        color: #aaa; /* Pewarnaan lebih lembut untuk bagian bawah */
+        font-size: 0.9rem;
+        border-top: 1px solid #444;
+        padding-top: 15px;
+        text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">ExploreNow</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Rekomendasi</a></li>
+                    <li><a href="#" onclick="showSection('about')">Tentang Kami</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section active">
+            <div class="container">
+                <h2>Rekomendasi Tempat di Indonesia</h2>
+                <div class="place-list"></div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <p>ExploreNow adalah platform yang dirancang untuk membantu Anda menemukan destinasi terbaik di Indonesia.</p>
+                <div class="team-list">
+                    <div class="team-member">
+                        <img src="gambar/anggota1.jpg" alt="Romi Jauhar Hibrizi">
+                        <h4>Romi Jauhar Hibrizi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+                    <!-- Anggota lainnya -->
+                    <div class="team-member">
+                        <img src="gambar/anggota1.jpg" alt="a">
+                        <h4>Muhammad Nabil</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="gambar/anggota1.jpg" alt="Romi Jauhar Hibrizi">
+                        <h4>Renaldi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="gambar/anggota1.jpg" alt="Romi Jauhar Hibrizi">
+                        <h4>Setya Intan Pratiwi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="gambar/anggota1.jpg" alt="Romi Jauhar Hibrizi">
+                        <h4>Ananda Aulia Tu'zahra</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Kontak</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Kirim</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Desa Wisata</h3>
+                    <ul>
+                        <li>Rintisan</li>
+                        <li>Berkembang</li>
+                        <li>Maju</li>
+                        <li>Mandiri</li>
+                        <li>Pencarian Desa Wisata</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Wisata</h3>
+                    <ul>
+                        <li>Wisata Alam</li>
+                        <li>Wisata Budaya</li>
+                        <li>Wisata Buatan</li>
+                        <li>Pencarian Atraksi</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hubungi Kami</h3>
+                    <p>Telepon: 0812-1000-2190</p>
+                    <p>Email: info@jadesta.com</p>
+                    <div class="social-icons">
+                        <a href="#" title="Twitter">&#xf099;</a>
+                        <a href="#" title="Facebook">&#xf09a;</a>
+                        <a href="#" title="Gmail">&#xf0e0;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>KEMENTERIAN PARIWISATA DAN EKONOMI KREATIF</p>
+                <p>&copy; 2024 ExploreNow</p>
+            </div>
+        </footer>
+        
+    </main>
+
+    <script>
+         const recommendedPlaces = [
+            { name: "Gunung Bromo", image: "gambar/bromo.jpg", description: "Gunung Bromo adalah salah satu gunung berapi paling terkenal di Indonesia yang menawarkan pemandangan spektakuler." },
+            { name: "Pantai Kuta", image: "gambar/kutaa.jpg", description: "Pantai Kuta di Bali adalah salah satu destinasi wisata terpopuler dengan pasir putih dan ombak yang cocok untuk surfing." },
+            { name: "Taman Nasional Komodo", image: "gambar/komodo.jpg", description: "Rumah bagi komodo, reptil terbesar di dunia, dan pemandangan alam yang luar biasa." },
+            { name: "Pulau Derawan", image: "gambar/wann.jpg", description: "Pulau tropis yang terletak di Kalimantan Timur dengan keindahan laut yang luar biasa." },
+            { name: "Danau Toba", image: "gambar/toba.jpg", description: "Danau vulkanik terbesar di dunia dengan pemandangan yang mempesona." },
+            { name: "Raja Ampat", image: "gambar/ampat.jpg", description: "Salah satu surga dunia bagi pecinta snorkeling dan diving." },
+            { name: "Candi Borobudur", image: "gambar/budur.jpg", description: "Candi Buddha terbesar di dunia yang menjadi ikon wisata Indonesia." },
+            { name: "Pulau Belitung", image: "gambar/belitung.jpg", description: "Pantai-pantai yang dihiasi dengan batuan granit besar." },
+            { name: "Pulau Weh", image: "gambar/weh.jpg", description: "Pulau kecil di ujung barat Indonesia dengan pesona bawah laut." },
+            { name: "Tanjung Puting", image: "gambar/tanjung-puting.jpg", description: "Taman nasional dengan habitat orangutan liar." },
+            { name: "Labuan Bajo", image: "gambar/bajo.jpg", description: "Gerbang menuju Taman Nasional Komodo dengan pemandangan memukau." },
+            { name: "Kawah Ijen", image: "gambar/ijen.jpg", description: "Gunung berapi aktif di Jawa Timur yang terkenal dengan fenomena api biru." },
+            { name: "Tana Toraja", image: "gambar/tana.jpg", description: "Wilayah di Sulawesi Selatan dengan tradisi pemakaman unik dan pemandangan perbukitan." },
+            { name: "Pulau Seribu", image: "gambar/seribu.jpg", description: "Kumpulan pulau-pulau tropis di dekat Jakarta dengan pemandangan laut yang memukau." },
+            { name: "Bunaken", image: "gambar/bunaken.jpg", description: "Taman laut di Sulawesi Utara dengan keanekaragaman hayati yang luar biasa." },
+            { name: "Taman Nasional Baluran", image: "gambar/balurann.jpg", description: "Dijuluki 'Afrika van Java,' tempat ini menawarkan pemandangan savana luas dengan hewan liar seperti rusa dan banteng." },
+            { name: "Bukit Tinggi", image: "gambar/tinggi.jpg", description: "Kota bersejarah di Sumatera Barat dengan ikon Jam Gadang dan budaya Minangkabau yang kaya." },
+            { name: "Pantai Tanjung Tinggi", image: "gambar/tanjungg.jpg", description: "Pantai terkenal di Belitung dengan batu-batu granit raksasa dan air laut yang jernih." },
+            { name: "Bukit Merese", image: "gambar/merese.jpg", description: "Bukit Merese adalah salah satu destinasi wisata alam paling menakjubkan di Lombok, Nusa Tenggara Barat. Terletak di dekat Pantai Tanjung Aan, bukit ini menawarkan pemandangan spektakuler dari atas, dengan hamparan laut biru, pantai berpasir putih, dan perbukitan hijau yang memukau. " },
+            { name: "Monumen Nasional", image: "gambar/taman-nasional.jpg", description: "Monumen Nasional, atau Monas, adalah simbol perjuangan rakyat Indonesia untuk kemerdekaan. Terletak di jantung Jakarta, monumen ini memiliki tinggi 132 meter dan dilapisi emas di bagian puncaknya." },
+            { name: "Pura Agung Besakih", image: "gambar/besakih.jpg", description: "Pura Agung Besakih, dikenal sebagai 'Mother Temple of Bali' adalah pura terbesar dan paling suci di Pulau Bali. Terletak di lereng Gunung Agung, pura ini terdiri dari kompleks pura yang saling terhubung dengan arsitektur khas Bali yang indah." }
+            ];
+
+        const placeList = document.querySelector(".place-list");
+        recommendedPlaces.forEach(place => {
+            const placeItem = document.createElement("div");
+            placeItem.classList.add("place-item");
+            placeItem.innerHTML = `<img src="${place.image}" alt="${place.name}"><h3>${place.name}</h3><p>${place.description}</p>`;
+            placeList.appendChild(placeItem);
+        });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+       
+            
+    </script>
+</body>
+</html>

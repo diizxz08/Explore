@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Wisata</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset margin & padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style body agar konten berada di tengah */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        /* Container utama */
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Gaya gambar */
+        #place-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Gaya paragraf */
+        p {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Gaya link kembali */
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="place-title">Detail Wisata</h1>
+        <img id="place-image" src="" alt="Gambar Wisata">
+        <p id="place-description"></p>
+        <a href="index.html" class="back-link">Kembali</a>
+    </div>
+
+    <script>
+        // Ambil parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const placeId = urlParams.get("id");
+        
+        // Data wisata
+        const details = {
+            "bromo": {
+                title: "Gunung Bromo",
+                image: "https://drive.google.com/thumbnail?id=1PNkFmxT2tqLJm82JOM04INZLm2SG_AFb&sz=s800",
+                description: "Gunung Bromo adalah salah satu destinasi wisata terkenal di Indonesia."
+            },
+            "kuta": {
+                title: "Pantai Kuta",
+                image: "https://drive.google.com/thumbnail?id=1vtRDyc4nN_jbnK0ZNc0XL67OodGlfkBu&sz=800",
+                description: "Pantai Kuta di Bali terkenal dengan pasir putihnya yang indah dan ombak yang cocok untuk berselancar."
+            },
+            "pulau_komodo": {
+                title: "Pulau Komodo",
+                image: "https://drive.google.com/thumbnail?id=1prPyYY2buWFnyiFQ5yPNLp_9N0RlIuaE&sz=800",
+                description: "Pulau Komodo adalah habitat asli komodo, reptil purba yang hanya ada di Indonesia."
+            },
+            "candi_borobudur": {
+                title: "Candi Borobudur",
+                image: "https://drive.google.com/thumbnail?id=11e1VP4-1N8i195v0P9LfTpx7QieOQJ56&sz=800",
+                description: "Candi Borobudur adalah candi Buddha terbesar di dunia yang terletak di Magelang, Indonesia."
+            },
+            "danau_toba": {
+                title: "Danau Toba",
+                image: "https://drive.google.com/thumbnail?id=12dIKyYgBaXLaMF-CGbjo4Dl8x7ptPWR7&sz=800",
+                description: "Danau Toba adalah danau vulkanik terbesar di Asia Tenggara."
+            },
+            "besakih": {
+                title: "Besakih",
+                image: "https://drive.google.com/thumbnail?id=1k6ZaFC8YxN1_5yeTFXFoa8OScAp-5sPj&sz=800",
+                description: "Baluran dikenal sebagai 'Afrika-nya Jawa' dengan padang savana yang luas."
+            },
+            "toraja": {
+                title: "Tana Toraja",
+                image: "https://drive.google.com/thumbnail?id=1LpopEZST03VhIg8oSb4HBqQyw5YSIRTM&sz=800",
+                description: "Tana Toraja terkenal dengan budaya uniknya, termasuk rumah adat Tongkonan dan upacara pemakaman Rambu Solo'."
+            },
+            "kawah_ijen": {
+                title: "Kawah Ijen",
+                image: "https://drive.google.com/thumbnail?id=1GRLft5h4BDjYfK7gofN_hWVndyurLJkc&sz=800",
+                description: "Kawah Ijen memiliki fenomena api biru (blue fire) yang sangat langka."
+            },
+            "raja_ampat": {
+                title: "Raja Ampat",
+                image: "https://drive.google.com/thumbnail?id=1R95sTuKduO6IMJsytGa9KnHUBMI7mfOE&sz=800",
+                description: "Raja Ampat adalah surganya para penyelam dengan keanekaragaman hayati laut yang luar biasa."
+            },
+            "garuda_wisnu": {
+                title: "Garuda Wisnu Kencana",
+                image: "https://drive.google.com/thumbnail?id=1i0QUxc24BXF9sWQMKgArcdnVUmKwEmEW&sz=800",
+                description: "Bukit Merese menawarkan pemandangan matahari terbenam yang indah di Lombok."
+            },
+            "rinjani": {
+                title: "Gunung Rinjani",
+                image: "https://drive.google.com/thumbnail?id=1ROGnfBNdXp59D3o3Y35XZATIq2e9d9A4&sz=800",
+                description: "Bukittinggi adalah kota bersejarah di Sumatera Barat dengan Jam Gadang sebagai ikon."
+            },
+            "monumen_nasional": {
+                title: "Monumen Nasional",
+                image: "https://drive.google.com/thumbnail?id=1Qad_9V3y3liMb_m00Ue13DBC4Hq4KekG&sz=800",
+                description: "Pantai Tanjung Tinggi terkenal dengan batu granit besar yang unik di Belitung."
+            }
+        };
+        
+
+
+        // Jika ID valid, tampilkan datanya
+        if (details[placeId]) {
+            document.getElementById("place-title").innerText = details[placeId].title;
+            document.getElementById("place-image").src = details[placeId].image;
+            document.getElementById("place-description").innerText = details[placeId].description;
+        } else {
+            document.querySelector(".container").innerHTML = "<h2>Data tidak ditemukan</h2>";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".back-link").addEventListener("click", function() {
+                sessionStorage.setItem("backFromDetail", "true"); // Tandai bahwa kita kembali ke home
+            });
+        });
+        
+    </script>
+
+</body>
+</html>

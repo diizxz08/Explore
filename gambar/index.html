@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreTeam - Rekomendasi Tempat Wisata di Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("2xOFdjkuQBGt5FrMi"); // Ganti dengan User ID dari EmailJS
+        })();
+    </script>
+
+</head>
+<body>
+
+    <!-- Welcome Screen -->
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <h2>Selamat Datang di ExploreTeam</h2>
+            <p>Temukan tempat wisata terbaik di Indonesia.</p>
+            <button class="welcome-button" onclick="startApp()">Mulai Jelajahi</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Explore Team</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Rekomendasi</a></li>
+                    <li><a href="#" onclick="showSection('about')">Tentang Kami</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="display: none;">
+
+       
+        <section id="home" class="section active">
+            <div class="container">
+                <h2>Rekomendasi Tempat Wisata di Indonesia</h2>
+                <div id="places">
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1PNkFmxT2tqLJm82JOM04INZLm2SG_AFb&sz=s800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Gunung Bromo</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="bromo1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+        
+                          
+                            <a href="detail.html?id=bromo">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="place" data-video="pantai_kuta.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1vtRDyc4nN_jbnK0ZNc0XL67OodGlfkBu&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Pantai Kuta</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="pantai_kuta.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=kuta">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="komodo.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1prPyYY2buWFnyiFQ5yPNLp_9N0RlIuaE&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Pulau Komodo</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="komodo.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=pulau_komodo">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="candi_borobudur.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=11e1VP4-1N8i195v0P9LfTpx7QieOQJ56&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Candi Borobudur</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="candi_borobudur.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=candi_borobudur">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=12dIKyYgBaXLaMF-CGbjo4Dl8x7ptPWR7&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Danau Toba</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src=".mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+                         
+                            <a href="detail.html?id=danau_toba">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+                  
+                
+                    <div class="place" data-video="besakih.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1k6ZaFC8YxN1_5yeTFXFoa8OScAp-5sPj&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Pura Agung Besakih</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="besakih.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+                            
+                            <a href="detail.html?id=besakih">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1LpopEZST03VhIg8oSb4HBqQyw5YSIRTM&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Tana Toraja</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="toraja.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=toraja">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1GRLft5h4BDjYfK7gofN_hWVndyurLJkc&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Kawah Ijen</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="kawah_ijen.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=kawah_ijen">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1R95sTuKduO6IMJsytGa9KnHUBMI7mfOE&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Kepulauan Raja Ampat</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="raja_ampat.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=raja_ampat">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1i0QUxc24BXF9sWQMKgArcdnVUmKwEmEW&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Garuda Wisnu Kencana</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="garuda_wisnu.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=garuda_wisnu">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                  
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1ROGnfBNdXp59D3o3Y35XZATIq2e9d9A4&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Gunung Rinjani</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="rinjani.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+                          
+                            <a href="detail.html?id=rinjani">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+                   
+                     
+                    <div class="place" data-video="bromo1.mp4">
+                        <div class="image-container">
+                            <img class="thumbnail" src="https://drive.google.com/thumbnail?id=1Qad_9V3y3liMb_m00Ue13DBC4Hq4KekG&sz=800" alt="Tempat Wisata 1">
+                        </div>
+                        <h3>Monumen Nasional</h3>
+                        <div class="video-container">
+                            <video class="video-preview" controls>
+                                <source src="monas.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video.
+                            </video>
+
+                            <a href="detail.html?id=monumen_nasional">
+                                <button class="detail-button">Lihat Lebih Detail</button>
+                            </a>
+
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+
+
+        
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <p>ExploreNow adalah platform yang dirancang untuk membantu Anda menemukan destinasi terbaik di Indonesia.</p>
+                <div class="team-list">
+                    <div class="team-member">
+                        <img src="https://drive.google.com/thumbnail?id=1BrNxf7FfqW_IS1ynqNfFRcW8nLH8WVBS&sz=800" alt="Romi Jauhar Hibrizi">
+                        <h4>Romi Jauhar Hibrizi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+                    <!-- Anggota lainnya -->
+                    <div class="team-member">
+                        <img src="https://drive.google.com/thumbnail?id=1SCSjrrQCBXQS8kRzehRe9X-6j7X4autY&sz=800" alt="Muhammad Nabil">
+                        <h4>Muhammad Nabil</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+                   
+                    <div class="team-member">
+                        <img src="https://drive.google.com/thumbnail?id=1Bg-DIs9dNmIltXSn3oO_Msnhecl6YufU&sz=800" alt="Renaldi">
+                        <h4>Renaldi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://drive.google.com/thumbnail?id=1rEjkVvUDI78ZRu9QwP8rOKX8FIvJyrKt&sz=800" alt="Setya Intan Pratiwi">
+                        <h4>Setya Intan Pratiwi</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://drive.google.com/thumbnail?id=1H8BLGK6bICnwi2aNrWYVpZIC1yrUECY7&sz=800" alt="Ananda Aulia Tu'zahra">
+                        <h4>Ananda Aulia Tu'zahra</h4>
+                        <p>Pengembang web utama yang bertanggung jawab dalam membangun arsitektur platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Kontak</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="fullname" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email_id" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="button" onclick="SendMail()">Kirim</button>
+                </form>
+            </div>
+        </section>
+
+        
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 ExploreNow</p>
+        </div>
+    </footer>
+    
+
+    
+    <script>
+        // Fungsi untuk menampilkan welcome screen
+        document.addEventListener("DOMContentLoaded", function () {
+            // Cek apakah user baru kembali dari detail.html
+            if (sessionStorage.getItem("backFromDetail") === "true") {
+                sessionStorage.removeItem("backFromDetail"); // Hapus agar tidak berlaku terus
+                showHome(); // Langsung tampilkan home tanpa welcome-screen
+            } else {
+                showWelcomeScreen(); // Jika pertama kali, tampilkan welcome-screen
+            }
+        });
+        
+        // Fungsi untuk menampilkan welcome screen
+        function showWelcomeScreen() {
+            document.querySelector('.welcome-screen').style.display = 'flex';
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('main').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+        }
+        
+        // Fungsi untuk memulai aplikasi setelah klik "Mulai Jelajahi"
+        function startApp() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.querySelector('header').style.display = 'block';
+            document.querySelector('main').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+            
+            showSection('home'); // Default ke home
+        }
+        
+        // Fungsi untuk menampilkan home langsung tanpa welcome-screen
+        function showHome() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.querySelector('header').style.display = 'block';
+            document.querySelector('main').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+            showSection('home'); // Langsung ke home
+        }
+        
+        // Fungsi untuk menampilkan section yang dipilih
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        
+        // Fungsi untuk melihat detail tempat wisata
+        function viewDetails(placeId) {
+            sessionStorage.setItem("backFromDetail", "true"); // Tandai bahwa user akan ke detail
+            window.location.href = `detail.html?id=${placeId}`;
+        }
+        
+
+
+        // Fungsi Send Email
+        function SendMail() {
+            console.log("Mengirim email..."); // Debugging
+            var params = {
+                from_name: document.getElementById("fullname").value,
+                email_id: document.getElementById("email_id").value,
+                message: document.getElementById("message").value
+            };
+    
+            emailjs.send("service_gfncsvc", "template_739grp5", params, "2xOFdjkuQBGt5FrMi")
+                .then(function (res) {
+                    alert("Success! Status: " + res.status);
+                })
+                .catch(function (err) {
+                    alert("Failed! Error: " + JSON.stringify(err));
+                });
+        }
+        
+
+        // Fungsi untuk video 
+        function playVideoOnHover(placeElement) {
+            const video = placeElement.querySelector(".video-preview");
+            const img = placeElement.querySelector(".thumbnail");
+        
+            if (video && img) {
+                img.style.opacity = "0";
+                video.style.visibility = "visible";
+                video.style.opacity = "1";
+                video.play();
+            }
+        }
+        
+        function stopVideoOnHover(placeElement) {
+            const video = placeElement.querySelector(".video-preview");
+            const img = placeElement.querySelector(".thumbnail");
+        
+            if (video && img) {
+                video.pause();
+                video.currentTime = 0;
+                video.style.visibility = "hidden";
+                video.style.opacity = "0";
+                img.style.opacity = "1";
+            }
+        }
+        
+        document.querySelectorAll(".place").forEach((place) => {
+            place.addEventListener("mouseover", () => playVideoOnHover(place));
+            place.addEventListener("mouseout", () => stopVideoOnHover(place));
+        });
+        
+    </script>
+</body>
+</html>
