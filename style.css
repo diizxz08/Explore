@@ -37,7 +37,7 @@
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(45deg, #ff9f43, #ff6b6b);
+    background: linear-gradient(45deg, #34b4ca, #55a6e9);
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -47,7 +47,7 @@
 }
 
 .welcome-button:hover {
-    background: linear-gradient(45deg, #ff6b6b, #e84118);
+    background: linear-gradient(45deg, #1268ca, #0ed5e4);
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(255, 71, 87, 0.7);
 }
