@@ -43,7 +43,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: 0.4s;
-    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.5);
+    box-shadow: 0 4px 10px rgba(255, 154, 107, 0.5);
 }
 
 .welcome-button:hover {
